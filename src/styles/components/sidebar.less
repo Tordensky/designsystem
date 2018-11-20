@@ -1,11 +1,48 @@
 .sb1ds-sidebar {
     background-color: @ffe-grey-cloud;
-    padding-top: 20px;
+    padding-top: 60px;
+
+    @media screen and (max-width: @breakpoint-md - 1) {
+        position: relative;
+        height: 160px;
+        overflow: hidden;
+        border-bottom: 1px solid @ffe-grey-silver;
+    }
+
+    &::before {
+        display: block;
+        content: '';
+        background: url("data:image/svg+xml;utf8,<svg fill='#000000' height='20' width='20' viewBox='0 0 200 200'><path d='m16.171492,41.999998c-4.143269,0-8.2852797,1.57464-11.4277496,4.706478-6.3249899,6.283609-6.3249899,16.499474,0,22.803034l84.0286676,83.76282c6.30496,6.30356,16.54928,6.30356,22.87426,0l83.60959-83.26412c6.32499-6.28361,6.32499-16.499477,0-22.803038-6.30496-6.30356-16.55553-6.30356-22.88051,0l-72.13806,71.893768-72.613438-72.373767c-3.14247-3.151781-7.29074-4.725174-11.433999-4.725174h-0.0188z'></path></svg>");
+        height: 20px;
+        width: 20px;
+        position: absolute;
+        bottom: 30px;
+        z-index: 1;
+    }
+
+    &::after {
+        @media screen and (max-width: @breakpoint-md - 1) {
+            display: block;
+            content: '';
+            height: 105px;
+            width: 100%;
+            background: linear-gradient(
+                to bottom,
+                transparent 50%,
+                @ffe-grey-cloud 100%
+            );
+            position: absolute;
+            bottom: 0;
+            cursor: pointer;
+            z-index: 2;
+        }
+    }
 
     @media screen and (min-width: @breakpoint-md) {
         border-right: 1px solid @ffe-grey-silver;
         min-height: 100vh;
         height: 100%;
+        padding-top: 20px;
     }
 
     @media screen and (min-width: @breakpoint-xl) {
@@ -52,8 +89,12 @@
 
     &__wrapper {
         margin: 0 -10px;
+        z-index: 1;
+        position: absolute;
+        width: 100%;
 
         @media screen and (min-width: @breakpoint-md) {
+            position: relative;
             height: 100%;
             margin: 0;
         }
